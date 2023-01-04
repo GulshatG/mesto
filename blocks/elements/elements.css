@@ -1,0 +1,13 @@
+.elements {
+    padding: 50px 0 66px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , 282px);  
+    column-gap: 17px;
+    row-gap: 20px;
+}
+
+@media screen and (max-width: 425px) {
+    .elements {
+        padding: 0 19px 48px;
+    } 
+}

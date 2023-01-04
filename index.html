@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pades/index.css">
+</head>
+
+<body class="body">
+    <section class="popup">
+        <div class="popup__container">
+            <img class="popup__close-icon" src="./image/Close Icon.png" alt="Закрыть">
+            <form class="popup__form">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <fieldset class="popup__field">
+                    <input class="popup__name" type="text" id="nameInput">
+                </fieldset>
+                <fieldset class="popup__field">
+                    <input class="popup__name" type="text" id="feature">
+                </fieldset>
+                <button class="popup__button">Сохранить</button>
+            </form>
+        </div>
+    </section>
+    <header class="header">
+            <img class="header__logo" src="./image/logo.svg" alt="Логотип">
+        <img class="header__line" src="./image/Line.svg" alt="Линия">
+    </header>
+    <main class="main">
+        <section class="profile">
+            <div class="profile__person">
+                <img class="profile__avatar" src="./image/Жак-Ив Кусто.png" alt="Жак-Ив Кусто">
+                <div class="profile__info">
+                    <div class="profile__text">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <h2 class="profile__feature">Исследователь океана</h2>
+                    </div>
+                    <button class="profile__button-edit">
+                        <img src="./image/Edit Button.png" alt="Кнопка редактирования">
+                    </button>
+                </div>
+            </div>
+            <button class="profile__button-add">
+                <img class="profile__button-icon" src="./image/Add Button.png" alt="Кнопка">
+            </button>
+        </section>
+        <section class="elements">
+            <div class="elements__element">
+                <img class="element__picter" src="./image/Карачаевск.png" alt="Карачаевск">
+                <div class="element__group">
+                    <h3 class="element__name">Карачаевск</h3>
+                    <img class="element__vector" src="./image/Vector.png" alt="Лайк">
+                </div>
+            </div>
+            <div class="elements__element">
+                <img class="element__picter" src="./image/Гора Эльбрус.png" alt="Карачаевск">
+                <div class="element__group">
+                    <h3 class="element__name">Гора Эльбрус</h3>
+                    <img class="element__vector" src="./image/Vector.png" alt="Лайк">
+                </div>
+            </div>
+            <div class="elements__element">
+                <img class="element__picter" src="./image/Домбай.png" alt="Карачаевск">
+                <div class="element__group">
+                    <h3 class="element__name">Домбай</h3>
+                    <img class="element__vector" src="./image/Vector.png" alt="Лайк">
+                </div>
+            </div>
+            <div class="elements__element">
+                <img class="element__picter" src="./image/Гора Эльбрус.png" alt="Карачаевск">
+                <div class="element__group">
+                    <h3 class="element__name">Гора Эльбрус</h3>
+                    <img class="element__vector" src="./image/Vector.png" alt="Лайк">
+                </div>
+            </div>
+            <div class="elements__element">
+                <img class="element__picter" src="./image/Домбай.png" alt="Карачаевск">
+                <div class="element__group">
+                    <h3 class="element__name">Домбай</h3>
+                    <img class="element__vector" src="./image/Vector.png" alt="Лайк">
+                </div>
+            </div>
+            <div class="elements__element">
+                <img class="element__picter" src="./image/Карачаевск.png" alt="Карачаевск">
+                <div class="element__group">
+                    <h3 class="element__name">Карачаево-Ч...</h3>
+                    <img class="element__vector" src="./image/Vector.png" alt="Лайк">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h3 class="footer">© 2020 Mesto Russia</h3>
+    </footer>
+    <script src="./script.js"></script>
+</body>

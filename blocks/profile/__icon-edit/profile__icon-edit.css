@@ -1,0 +1,10 @@
+.profile__icon-edit {
+    height: 24px;
+}
+
+@media screen and (max-width: 425px) {
+    .profile__icon-edit {
+        height: 18px;
+        width: 18px;
+    }
+}

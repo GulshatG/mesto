@@ -1,21 +1,23 @@
 .popup__close-icon {
-    position: relative;
+    position: absolute;
     width: 32px;
     height: 32px;
-    right: -489px;
-    top: -78px;
+    right: -36px;
+    top: -42px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
 }
 
 .popup__close-icon:hover {
-    opacity: 0.5;
-    color: grey;
+    opacity: 0.6;
 }
 
 @media screen and (max-width: 425px) {
     .popup__close-icon {
         width: 20px;
         height: 20px;
-        right: -196px;
-        top: -30px;
+        right: 0;
+        top: -35px;
     }
 }

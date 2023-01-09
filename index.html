@@ -4,29 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesto</title>
+    <title>Место</title>
     <link rel="stylesheet" href="./pades/index.css">
 </head>
 
 <body class="body">
-    <section class="popup">
-        <div class="popup__container">
-            <img class="popup__close-icon" src="./image/Close-Icon.png" alt="Закрыть">
-            <form class="popup__form">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <fieldset class="popup__field">
-                    <input class="popup__name" type="text" id="nameInput">
-                </fieldset>
-                <fieldset class="popup__field">
-                    <input class="popup__name" type="text" id="feature">
-                </fieldset>
-                <button class="popup__button">Сохранить</button>
-            </form>
-        </div>
-    </section>
     <header class="header">
         <img class="header__logo" src="./image/logo.svg" alt="Логотип">
-        <img class="header__line" src="./image/Line.svg" alt="Линия">
     </header>
     <main class="main">
         <section class="profile">
@@ -35,15 +19,15 @@
                 <div class="profile__info">
                     <div class="profile__text">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <h2 class="profile__feature">Исследователь океана</h2>
+                        <p class="profile__feature">Исследователь океана</p>
                     </div>
-                    <button class="profile__button-edit">
-                        <img src="./image/Edit-Button.png" alt="Кнопка редактирования">
+                    <button class="profile__button-edit" type="button">
+                        <img class="profile__icon-edit" src="./image/Edit-Button.svg" alt="Кнопка редактирования">
                     </button>
                 </div>
             </div>
-            <button class="profile__button-add">
-                <img class="profile__button-icon" src="./image/Add-Button.png" alt="Кнопка">
+            <button class="profile__button-add" type="button">
+                <img class="profile__button-icon" src="./image/Add-Button.svg" alt="Кнопка">
             </button>
         </section>
         <section class="elements">
@@ -51,49 +35,74 @@
                 <img class="elements__picter" src="./image/Карачаевск.png" alt="Карачаевск">
                 <div class="elements__group">
                     <h3 class="elements__name">Карачаевск</h3>
-                    <img class="elements__vector" src="./image/Vector.png" alt="Лайк">
+                    <button  class="elements__vector" type="button">
+                        <img src="./image/Vector.svg" alt="Лайк">
+                    </button>
                 </div>
             </div>
             <div class="elements__element">
                 <img class="elements__picter" src="./image/Гора-Эльбрус.png" alt="Карачаевск">
                 <div class="elements__group">
                     <h3 class="elements__name">Гора Эльбрус</h3>
-                    <img class="elements__vector" src="./image/Vector.png" alt="Лайк">
+                    <button  class="elements__vector" type="button">
+                        <img src="./image/Vector.svg" alt="Лайк">
+                    </button>
                 </div>
             </div>
             <div class="elements__element">
                 <img class="elements__picter" src="./image/Домбай.png" alt="Карачаевск">
                 <div class="elements__group">
                     <h3 class="elements__name">Домбай</h3>
-                    <img class="elements__vector" src="./image/Vector.png" alt="Лайк">
+                    <button  class="elements__vector" type="button">
+                        <img src="./image/Vector.svg" alt="Лайк">
+                    </button>
                 </div>
             </div>
             <div class="elements__element">
                 <img class="elements__picter" src="./image/Гора-Эльбрус.png" alt="Карачаевск">
                 <div class="elements__group">
                     <h3 class="elements__name">Гора Эльбрус</h3>
-                    <img class="elements__vector" src="./image/Vector.png" alt="Лайк">
+                    <button  class="elements__vector" type="button">
+                        <img src="./image/Vector.svg" alt="Лайк">
+                    </button>
                 </div>
             </div>
             <div class="elements__element">
                 <img class="elements__picter" src="./image/Домбай.png" alt="Карачаевск">
                 <div class="elements__group">
                     <h3 class="elements__name">Домбай</h3>
-                    <img class="elements__vector" src="./image/Vector.png" alt="Лайк">
+                    <button  class="elements__vector" type="button">
+                        <img src="./image/Vector.svg" alt="Лайк">
+                    </button>
                 </div>
             </div>
             <div class="elements__element">
                 <img class="elements__picter" src="./image/Карачаевск.png" alt="Карачаевск">
                 <div class="elements__group">
                     <h3 class="elements__name">Карачаево-Ч...</h3>
-                    <img class="elements__vector" src="./image/Vector.png" alt="Лайк">
+                    <button  class="elements__vector" type="button">
+                        <img src="./image/Vector.svg" alt="Лайк">
+                    </button>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
-        <h3 class="footer">© 2020 Mesto Russia</h3>
+    <footer class="footer">
+        <p>© 2020 Mesto Russia</p>
     </footer>
-    <script src="./script.js"></script>
+    <section class="popup">
+        <div class="popup__container">
+            <button class="popup__close-icon" type="button">
+                <img src="./image/Clos-Icon.svg" alt="Закрыть">
+            </button>
+            <form class="popup__form" name="Edit">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                    <input class="popup__input popup__input_line_name" type="text" name="nameInput">
+                    <input class="popup__input popup__input_line_feature" type="text" name="feature">
+                <button class="popup__button" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </section>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>

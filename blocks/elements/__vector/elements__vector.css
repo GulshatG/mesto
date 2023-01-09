@@ -1,13 +1,18 @@
 .elements__vector {
     width: 22px;
     height: 19px;
+    background-color: white;
+    border: none;
+    outline: none;
 }
 
 .elements__vector:hover {
     opacity: 0.5;
-    border-color: grey;
 }
 
-.elements__vector:active {
-    color: black;
+@media screen and (max-width: 425px) {
+    .elements__vector {
+        padding: 0  27px 0 0;
+        
+    }
 }

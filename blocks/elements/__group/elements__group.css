@@ -5,3 +5,11 @@
     align-items: center;
     padding: 25px 15px 30px;
 }
+
+@media screen and (max-width: 425px) {
+    .elements__group {
+        padding-top: 25px;
+        padding-left: 20px;
+        padding-bottom: 25px;
+    } 
+}

@@ -4,6 +4,7 @@
     background-color: white;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 .elements__vector:hover {

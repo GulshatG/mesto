@@ -11,6 +11,16 @@
   min-height: 40px;
 }
 
+@media screen and (max-width: 1024px) {
+  .header {
+    padding: 30px 100px 45px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 28px 20px 42px;
+  }
+}
 
 @media screen and (max-width: 425px) {
   .header {

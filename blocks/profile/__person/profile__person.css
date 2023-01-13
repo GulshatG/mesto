@@ -1,5 +1,6 @@
 .profile__person {
     display: flex;
+    max-width: 100%;
 }
 
 @media screen and (max-width: 425px) {

@@ -1,5 +1,5 @@
-.elements__picter {
-    width: 282px;
+.elements__picture {
+    width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
 }

@@ -4,11 +4,12 @@
   align-items: baseline;
   padding-left: 30px;
   gap: 18px;
+  max-width: 100%;
 }
 
 @media screen and (max-width: 425px) {
   .profile__info {
     padding: 26px 0 34px;
-    gap: 20px;
+    gap: 10px;
   }
 }

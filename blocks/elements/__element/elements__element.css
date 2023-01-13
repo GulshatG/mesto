@@ -1,5 +1,4 @@
 .elements__element {
-    min-width: 282px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;

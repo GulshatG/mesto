@@ -6,6 +6,12 @@
     row-gap: 20px;
 }
 
+@media screen and (max-width: 750px) {
+    .elements {
+        grid-template-columns: repeat(auto-fit, 206px);
+    }
+}
+
 @media screen and (max-width: 425px) {
     .elements {
         padding: 0 19px 48px;

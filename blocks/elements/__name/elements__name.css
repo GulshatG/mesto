@@ -9,24 +9,14 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    max-width: 210px;
 }
-@media screen and (max-width: 1024px) {
-    .elements__name {
-        max-width: 162px;
-    }
-}
-
-
 @media screen and (max-width: 768px) {
     .elements__name {
-        max-width: 107px;
         font-size: 15px;
     }
 }
 @media screen and (max-width: 425px) {
     .elements__name {
-        max-width: 210px;
         font-size: 24px;
     }
 }

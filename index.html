@@ -36,12 +36,12 @@
 <footer class="footer">
     <p class="footer__autor">© 2020 Mesto Russia</p>
 </footer>
-<section class="popup popup_edit-info">
+<section class="popup">
     <div class="popup__container">
-        <button class="popup__close-icon popup__close-icon_edit-info" type="button">
+        <button class="popup__close-icon" type="button">
             <img class="popup__image-close" src="./image/Clos-Icon.svg" alt="Закрыть">
         </button>
-        <form class="popup__form popup__form_edit-info" name="edit">
+        <form class="popup__form" name="edit">
             <h2 class="popup__title">Редактировать профиль</h2>
             <input class="popup__input popup__input_field_name" type="text" name="nameInput">
             <input class="popup__input popup__input_field_feature" type="text" name="feature">
@@ -49,46 +49,41 @@
         </form>
     </div>
 </section>
-
-<section class="popup popup_add-card">
+<section class="popup popup__button-add">
     <div class="popup__container">
-        <button class="popup__close-icon popup__close-icon_add-card" type="button">
+        <button class="popup__close-icon button-add__close-icon" type="button">
             <img class="popup__image-close" src="./image/Clos-Icon.svg" alt="Закрыть">
         </button>
-        <form class="popup__form popup__form_add-card" name="addCard">
+        <form class="popup__form popup__form_add-card" name="edit">
             <h2 class="popup__title">Новое место</h2>
-            <input class="popup__input popup__input_field_title" placeholder="Название" type="text" name="titleInput">
-            <input class="popup__input popup__input_field_link" placeholder="Ссылка на картинку" type="text"
-                   name="linkInput">
-            <button class="popup__button" type="submit">Создать</button>
+            <input class="popup__input popup__input_field_title" type="text" name="title" placeholder="Название">
+            <input class="popup__input popup__input_field_link" src="" type="text" name="link" placeholder="Ссылка на картинку">
+            <button class="popup__button" type="submit">Сохранить</button>
         </form>
     </div>
 </section>
-
-<section class="popup popup_card popup_dark">
-    <div class="popup__card-container">
+<section class="popup popup__card">
+    <div class="popup__big-img-container">
         <button class="popup__close-icon popup__close-icon_popup-card" type="button">
             <img class="popup__image-close" src="./image/Clos-Icon.svg" alt="Закрыть">
         </button>
-        <img class="popup__image" src="">
-        <p class="popup__image-info"></p>
+       <img class="popup__big-image" src="https://images.unsplash.com/photo-1675112519495-6d257843203d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
+       <h3 class="popup__big-img-title">Test</h3>
     </div>
 </section>
-
-
 <template id="card">
     <div class="elements__element">
-        <img class="elements__trash-icon" src="./image/Trash.svg" alt="Иконка удаления">
-        <img class="elements__picture" src="" alt="">
+        <img class="elements__trash-icon" src="./image/Trash.svg" alt="Удалить">
+        <img class="elements__picture" src="https://images.unsplash.com/photo-1643886024303-64ec3b023b60?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" alt="Картинка">
         <div class="elements__group">
             <h3 class="elements__name"></h3>
-            <button class="elements__button-like" type="button"></button>
+            <button class="elements__button-like" type="button">
+                <img src="./image/Vector.svg" alt="Иконка сердце">
+            </button>
         </div>
     </div>
 </template>
-
 <script src="./scripts/script.js"></script>
-
 </body>
 
 </html>

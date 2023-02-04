@@ -5,13 +5,12 @@
     position: fixed;
     justify-content: center;
     align-items: center;
-    display: flex;
     left: 0;
     top: 0;
     visibility: hidden;
+    display: flex;
     opacity: 0;
-    transition: visibility 0.5s, opacity 0.5s linear;
-
+    transition: visibility 0.5s, opacity 0.5s, linear;
 }
 
 @media screen and (max-width: 425px) {
@@ -19,5 +18,5 @@
         box-sizing: border-box;
         padding-left: 22px;
         padding-right: 22px;
-    }
+    } 
 }

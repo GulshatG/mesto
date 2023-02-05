@@ -69,14 +69,8 @@ function saveProfileInfo(evn) {
     closePopup(popupProfile);
 }
 
-function clickedLike(likeImg) {
-    let likeUrl = likeImg.getAttribute('src');
-    if (likeUrl === "../image/Vector-active.svg") {
-        likeImg.setAttribute('src', "../image/Vector.svg");
-    }
-    else {
-        likeImg.setAttribute('src', "../image/Vector-active.svg");
-    }
+function clickedLike(evt) {
+    evt.target.classList.toggle('elements__button-like_active');
 }
 
 function createCard(name, link) {
@@ -86,13 +80,10 @@ function createCard(name, link) {
     cardImg.src = link;
     cardImg.setAttribute('alt', name);
     const likeButton = card.querySelector('.elements__button-like');
-    likeButton.addEventListener('click', () => {
-        let likeImg = likeButton.firstElementChild;
-        clickedLike(likeImg);
-    });
+    likeButton.addEventListener('click', clickedLike);
     const trashIcon = card.querySelector('.elements__trash-icon');
     trashIcon.addEventListener('click', () => {
-        trashIcon.closest('.elements__element').remove();
+        card.closest('.elements__element').remove();
     });
     cardImg.addEventListener('click', () => cardImageClicked(name, link));
     return card;

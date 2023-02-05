@@ -7,12 +7,10 @@ const inputFeature = document.querySelector('.popup__input_field_feature');
 const closeButton = document.querySelector('.popup__close-icon');
 const popupFormProfile = document.querySelector('.popup__form_profile');
 const elements = document.querySelector('.elements');
-const template = document.querySelector('#card').content;
+const template = document.querySelector('#card').content.querySelector(".elements__element");
 const buttonAdd = document.querySelector('.profile__button-add');
 const popupAdd = document.querySelector('.popup_create-card');
 const closeButtonAdd = document.querySelector('.popup__close-icon_create-card');
-const buttonAddName = document.querySelector('.button-add__name');
-const buttonAddPicter = document.querySelector('.button-add__img');
 const popupFormAddCard = document.querySelector('.popup__form_add-card');
 const inputTitle = document.querySelector('.popup__input_field_title');
 const inputLink = document.querySelector('.popup__input_field_link');
@@ -83,7 +81,7 @@ function createCard(name, link) {
     likeButton.addEventListener('click', clickedLike);
     const trashIcon = card.querySelector('.elements__trash-icon');
     trashIcon.addEventListener('click', () => {
-        card.closest('.elements__element').remove();
+        card.remove();
     });
     cardImg.addEventListener('click', () => cardImageClicked(name, link));
     return card;

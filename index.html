@@ -41,10 +41,15 @@
         <button class="popup__close-icon" type="button">
             <img class="popup__image-close" src="./image/Clos-Icon.svg" alt="Закрыть">
         </button>
-        <form class="popup__form popup__form_profile" name="edit">
+        <form class="popup__form popup__form_profile" name="edit" novalidate>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__input popup__input_field_name" type="text" name="nameInput">
-            <input class="popup__input popup__input_field_feature" type="text" name="feature">
+            <input id="name-input" class="popup__input popup__input_field_name" type="text" name="nameInput"
+                   placeholder="Имя" required minlength="2" maxlength="40">
+            <span class="name-input-error popup__input-error"></span>
+            <input id="feature-input" class="popup__input popup__input_field_feature" type="text" name="feature"
+                   placeholder="О себе"
+                   required minlength="2" maxlength="200">
+            <span class="feature-input-error popup__input-error"></span>
             <button class="popup__button" type="submit">Сохранить</button>
         </form>
     </div>
@@ -56,8 +61,13 @@
         </button>
         <form class="popup__form popup__form_add-card" name="edit">
             <h2 class="popup__title">Новое место</h2>
-            <input class="popup__input popup__input_field_title" type="text" name="title" placeholder="Название">
-            <input class="popup__input popup__input_field_link" type="text" name="link" placeholder="Ссылка на картинку">
+            <input id="title-input" class="popup__input popup__input_field_title" type="text" name="title"
+                   placeholder="Название"
+                   required minlength="2" maxlength="30">
+            <span class="title-input-error popup__input-error"></span>
+            <input id="link-input" class="popup__input popup__input_field_link" type="url" name="link"
+                   placeholder="Ссылка на картинку" required>
+            <span class="link-input-error popup__input-error"></span>
             <button class="popup__button" type="submit">Сохранить</button>
         </form>
     </div>
@@ -67,14 +77,18 @@
         <button class="popup__close-icon popup__close-icon_popup-card" type="button">
             <img class="popup__image-close" src="./image/Clos-Icon.svg" alt="Закрыть">
         </button>
-       <img class="popup__big-image" src="https://images.unsplash.com/photo-1675112519495-6d257843203d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
-       <h3 class="popup__big-img-title"></h3>
+        <img class="popup__big-image"
+             src="https://images.unsplash.com/photo-1675112519495-6d257843203d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+             alt="">
+        <h3 class="popup__big-img-title"></h3>
     </div>
 </section>
 <template id="card">
     <div class="elements__element">
         <img class="elements__trash-icon" src="./image/Trash.svg" alt="Удалить">
-        <img class="elements__picture" src="https://images.unsplash.com/photo-1643886024303-64ec3b023b60?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" alt="Картинка">
+        <img class="elements__picture"
+             src="https://images.unsplash.com/photo-1643886024303-64ec3b023b60?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
+             alt="Картинка">
         <div class="elements__group">
             <h3 class="elements__name"></h3>
             <button class="elements__button-like" type="button">
@@ -83,6 +97,7 @@
     </div>
 </template>
 <script src="./scripts/script.js"></script>
+<script src="./scripts/validate.js"></script>
 </body>
 
 </html>

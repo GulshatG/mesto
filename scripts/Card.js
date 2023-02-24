@@ -1,4 +1,6 @@
 import { openPopup, popupCard } from './script.js'
+const popupBigImgTitle = document.querySelector('.popup__big-img-title');
+const popupBigImage = document.querySelector('.popup__big-image');
 
 export default class Card {
     constructor(data, selector) {
@@ -37,11 +39,13 @@ export default class Card {
         trashIcon.addEventListener('click', () => {
             card.remove();
         });
-        cardImg.addEventListener('click', openImagePopup);
+        cardImg.addEventListener('click', () => {
+            this._openImagePopup()
+        });
         return card;
     }
 
     getCardElement() {
-        return this._createCard;
+        return this._createCard();
     }
 }

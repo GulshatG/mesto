@@ -1,4 +1,4 @@
-import {Card} from './Card.js';
+import Card from './Card.js';
 
 const profilePopup = document.querySelector('.popup_profile');
 const buttonEdit = document.querySelector('.profile__button-edit');
@@ -16,8 +16,6 @@ const popupFormAddCard = document.querySelector('.popup__form_add-card');
 const inputTitle = document.querySelector('.popup__input_field_title');
 const inputLink = document.querySelector('.popup__input_field_link');
 export const popupCard = document.querySelector('.popup_card');
-const popupBigImgTitle = document.querySelector('.popup__big-img-title');
-const popupBigImage = document.querySelector('.popup__big-image');
 const popupBigImageCloseIcon = document.querySelector('.popup__close-icon_popup-card');
 
 const initialCards = [{

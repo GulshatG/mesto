@@ -1,4 +1,4 @@
-class FormValidator {
+export default class FormValidator {
     constructor(settings, formElement) {
         this._settings = settings;
         this._formElement = formElement;
@@ -56,7 +56,7 @@ class FormValidator {
     }
 
     _toggleButtonState(inputList, buttonElement) {
-        if (hasInvalidInput(inputList)) {
+        if (this._hasInvalidInput(inputList)) {
             buttonElement.disabled = true;
             buttonElement.classList.add(this._settings.inactiveButtonClass);
         } else {

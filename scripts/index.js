@@ -1,4 +1,5 @@
 import Card from './Card.js';
+import FormValidator from './FormValidator.js';
 
 const profilePopup = document.querySelector('.popup_profile');
 const buttonEdit = document.querySelector('.profile__button-edit');
@@ -17,6 +18,7 @@ const inputTitle = document.querySelector('.popup__input_field_title');
 const inputLink = document.querySelector('.popup__input_field_link');
 export const popupCard = document.querySelector('.popup_card');
 const popupBigImageCloseIcon = document.querySelector('.popup__close-icon_popup-card');
+const formList = Array.from(document.querySelectorAll('.popup__form'));
 
 const initialCards = [{
     name: 'Архыз', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -113,3 +115,17 @@ initialCards.forEach((item) => {
 });
 
 addListenersToAllPopup();
+
+const settings = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_inactive',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_active'
+}
+
+formList.forEach((form) => {
+    const validator = new FormValidator(settings, form);
+    validator.enableValidation();
+})

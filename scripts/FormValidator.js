@@ -5,12 +5,12 @@ class FormValidator {
     }
 
     _showInputError = (element, errorMessage) => {
-        element.classList.add(settings.inputErrorClass);
+        element.classList.add(this._settings.inputErrorClass);
         const spanError = this._formElement.querySelector(`.${element.id}-error`);
         spanError.textContent = errorMessage;
         spanError.classList.add(this._settings.errorClass);
     };
-    
+
     // Функция, которая удаляет класс с ошибкой
     _hideInputError = (element) => {
         element.classList.remove(this._settings.inputErrorClass);
@@ -18,63 +18,50 @@ class FormValidator {
         spanError.classList.remove(this._settings.errorClass);
         spanError.textContent = '';
     };
-    
+
     _isValid(inputElement) {
         if (inputElement.validity.valid) {
-            hideInputError(inputElement);
+            this._hideInputError(inputElement);
         } else {
-            showInputError(inputElement, inputElement.validationMessage);
+            this._showInputError(inputElement, inputElement.validationMessage);
         }
     }
-    
+
     _setEventListeners() {
         const inputList = Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
         const buttonElement = this._formElement.querySelector(this._settings.submitButtonSelector);
-        toggleButtonState(inputList, buttonElement);
+        this._toggleButtonState(inputList, buttonElement);
         this._formElement.addEventListener('reset', () => {
             setTimeout(() => {
-                toggleButtonState(inputList, buttonElement);
+                this._toggleButtonState(inputList, buttonElement);
             }, 0);
         });
         inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
-                isValid(inputElement);
-                toggleButtonState(inputList, buttonElement);
+                this._isValid(inputElement);
+                this._toggleButtonState(inputList, buttonElement);
             });
         });
     }
-    
-    
-    _enableValidation() {
-        const formList = Array.from(document.querySelectorAll(this._settings.formSelector));
-        formList.forEach((formElement) => {
-            setEventListeners(formElement, settings);
-        });
+
+
+    enableValidation() {
+        this._setEventListeners();
     }
-    
-    function hasInvalidInput(inputList) {
+
+    _hasInvalidInput(inputList) {
         return inputList.some((inputElement) => {
             return !inputElement.validity.valid;
         });
     }
-    
-    function toggleButtonState(inputList, buttonElement, settings) {
+
+    _toggleButtonState(inputList, buttonElement) {
         if (hasInvalidInput(inputList)) {
             buttonElement.disabled = true;
-            buttonElement.classList.add(settings.inactiveButtonClass);
+            buttonElement.classList.add(this._settings.inactiveButtonClass);
         } else {
             buttonElement.disabled = false;
-            buttonElement.classList.remove(settings.inactiveButtonClass);
+            buttonElement.classList.remove(this._settings.inactiveButtonClass);
         }
     }
-    
-    const settings = {
-        formSelector: '.popup__form',
-        inputSelector: '.popup__input',
-        submitButtonSelector: '.popup__button',
-        inactiveButtonClass: 'popup__button_inactive',
-        inputErrorClass: 'popup__input_type_error',
-        errorClass: 'popup__input-error_active'
-    }
-    enableValidation(settings);
 }

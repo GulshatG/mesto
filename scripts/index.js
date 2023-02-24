@@ -16,7 +16,7 @@ const closeButtonAdd = document.querySelector('.popup__close-icon_create-card');
 const popupFormAddCard = document.querySelector('.popup__form_add-card');
 const inputTitle = document.querySelector('.popup__input_field_title');
 const inputLink = document.querySelector('.popup__input_field_link');
-export const popupCard = document.querySelector('.popup_card');
+const popupCard = document.querySelector('.popup_card');
 const popupBigImageCloseIcon = document.querySelector('.popup__close-icon_popup-card');
 const formList = Array.from(document.querySelectorAll('.popup__form'));
 
@@ -42,7 +42,7 @@ function editButtonClicked() {
     inputFeature.value = profileFeature.textContent;
 }
 
-export function openPopup(popup) {
+function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEsc);
 }
@@ -109,7 +109,7 @@ popupBigImageCloseIcon.addEventListener('click', () => closePopup(popupCard));
 
 
 initialCards.forEach((item) => {
-    const card = new Card(item, '#card');
+    const card = new Card(item, '#card', openPopup);
     const cardElement = card.getCardElement();
     renderCard(cardElement);
 });

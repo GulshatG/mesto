@@ -1,12 +1,13 @@
-import { openPopup, popupCard } from './index.js'
 const popupBigImgTitle = document.querySelector('.popup__big-img-title');
 const popupBigImage = document.querySelector('.popup__big-image');
+const popupCard = document.querySelector('.popup_card');
 
 export default class Card {
-    constructor(data, selector) {
+    constructor(data, selector, openPopup) {
         this._name = data.name;
         this._link = data.link;
         this._selector = selector;
+        this._openPopup = openPopup;
     }
 
     _getElement() {
@@ -24,7 +25,7 @@ export default class Card {
         popupBigImgTitle.innerText = this._name;
         popupBigImage.setAttribute('src', this._link);
         popupBigImage.setAttribute('alt', this._name);
-        openPopup(popupCard);
+        this._openPopup(popupCard);
     }
 
     _createCard() {
@@ -44,6 +45,7 @@ export default class Card {
         });
         return card;
     }
+
 
     getCardElement() {
         return this._createCard();

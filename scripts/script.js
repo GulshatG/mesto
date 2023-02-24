@@ -62,8 +62,9 @@ function renderCard(card) {
 }
 
 function renderCardAtTheBeginning(name, link) {
-    const card = createCard(name, link);
-    elements.prepend(card);
+    const card = new Card({name, link}, '#card');
+    const cardElement = card.getCardElement();
+    elements.prepend(cardElement);
 }
 
 function handleFormAddCard(evn) {

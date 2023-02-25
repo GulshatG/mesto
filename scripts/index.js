@@ -36,6 +36,12 @@ const initialCards = [{
     name: 'Байкал', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
 }];
 
+
+function createCardElement(item) {
+    const card = new Card(item, '#card', openPopup);
+    return card.getCardElement();
+}
+
 function editButtonClicked() {
     openPopup(profilePopup);
     inputName.value = profileName.textContent;
@@ -64,9 +70,8 @@ function renderCard(card) {
 }
 
 function renderCardAtTheBeginning(name, link) {
-    const card = new Card({name, link}, '#card');
-    const cardElement = card.getCardElement();
-    elements.prepend(cardElement);
+    const item = {name: name, link: link};
+    elements.prepend(createCardElement(item));
 }
 
 function handleFormAddCard(evn) {
@@ -99,6 +104,7 @@ function addListenersToAllPopup() {
     })
 }
 
+
 buttonEdit.addEventListener('click', editButtonClicked);
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
 popupFormProfile.addEventListener('submit', saveProfileInfo);
@@ -109,9 +115,7 @@ popupBigImageCloseIcon.addEventListener('click', () => closePopup(popupCard));
 
 
 initialCards.forEach((item) => {
-    const card = new Card(item, '#card', openPopup);
-    const cardElement = card.getCardElement();
-    renderCard(cardElement);
+    renderCard(createCardElement(item));
 });
 
 addListenersToAllPopup();

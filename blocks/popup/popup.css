@@ -12,11 +12,3 @@
     opacity: 0;
     transition: visibility 0.5s, opacity 0.5s linear;
 }
-
-@media screen and (max-width: 425px) {
-    .popup {
-        box-sizing: border-box;
-        padding-left: 22px;
-        padding-right: 22px;
-    } 
-}

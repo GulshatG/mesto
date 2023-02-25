@@ -29,21 +29,27 @@ export default class Card {
     }
 
     _createCard() {
-        const card = this._getElement();
-        card.querySelector('.elements__name').innerText = this._name;
-        const cardImg = card.querySelector('.elements__picture');
-        cardImg.src = this._link;
-        cardImg.setAttribute('alt', this._name);
-        const likeButton = card.querySelector('.elements__button-like');
+        this._card = this._getElement();
+        this._card.querySelector('.elements__name').innerText = this._name;
+        this._cardImg = this._card.querySelector('.elements__picture');
+        this._cardImg.src = this._link;
+        this._cardImg.setAttribute('alt', this._name);
+
+        this._addListenersToCard();
+        return this._card;
+    }
+
+    _addListenersToCard() {
+        const likeButton = this._card.querySelector('.elements__button-like');
         likeButton.addEventListener('click', this._clickLike);
-        const trashIcon = card.querySelector('.elements__trash-icon');
+        const trashIcon = this._card.querySelector('.elements__trash-icon');
         trashIcon.addEventListener('click', () => {
-            card.remove();
+            this._card.remove();
         });
-        cardImg.addEventListener('click', () => {
+        this._cardImg.addEventListener('click', () => {
             this._openImagePopup()
         });
-        return card;
+
     }
 
 

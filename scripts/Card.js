@@ -3,17 +3,16 @@ const popupBigImage = document.querySelector('.popup__big-image');
 const popupCard = document.querySelector('.popup_card');
 
 export default class Card {
-    constructor(data, selector, openPopup) {
+    constructor(data, selector, handleCardClick) {
         this._name = data.name;
         this._link = data.link;
         this._selector = selector;
-        this._openPopup = openPopup;
+        this._handleCardClick = handleCardClick;
     }
 
     _getElement() {
         const template = document.querySelector(this._selector).content.querySelector('.elements__element');
-        const element = template.cloneNode(true);
-        return element;
+        return template.cloneNode(true);
     }
 
     _clickLike(evt) {
@@ -22,10 +21,10 @@ export default class Card {
 
 
     _openImagePopup() {
-        popupBigImgTitle.innerText = this._name;
-        popupBigImage.setAttribute('src', this._link);
-        popupBigImage.setAttribute('alt', this._name);
-        this._openPopup(popupCard);
+        // popupBigImgTitle.innerText = this._name;
+        // popupBigImage.setAttribute('src', this._link);
+        // popupBigImage.setAttribute('alt', this._name);
+        this._handleCardClick({name: this._name, link: this._link});
     }
 
     _createCard() {

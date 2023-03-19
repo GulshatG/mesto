@@ -1,7 +1,3 @@
-const popupBigImgTitle = document.querySelector('.popup__big-img-title');
-const popupBigImage = document.querySelector('.popup__big-image');
-const popupCard = document.querySelector('.popup_card');
-
 export default class Card {
     constructor(data, selector, handleCardClick) {
         this._name = data.name;
@@ -21,9 +17,6 @@ export default class Card {
 
 
     _openImagePopup() {
-        // popupBigImgTitle.innerText = this._name;
-        // popupBigImage.setAttribute('src', this._link);
-        // popupBigImage.setAttribute('alt', this._name);
         this._handleCardClick({name: this._name, link: this._link});
     }
 

@@ -4,6 +4,7 @@ import Section from "./Section.js";
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
+import '../pages/index.css';
 
 const buttonEdit = document.querySelector('.profile__button-edit');
 const inputName = document.querySelector('.popup__input_field_name');

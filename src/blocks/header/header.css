@@ -1,6 +1,6 @@
 .header {
   padding: 45px 200px 40px;
- }
+}
 
 .header::after {
   content: "";

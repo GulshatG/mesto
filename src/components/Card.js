@@ -36,12 +36,12 @@ export default class Card {
   _addListenersToCard() {
     this._likeButton.addEventListener('click', this._clickLike.bind(this));
     const trashIcon = this._card.querySelector('.elements__trash-icon');
-    trashIcon.addEventListener('click', () => {
-      this._card.remove();
-    });
-    this._cardImg.addEventListener('click', () => {
-      this._openImagePopup();
-    });
+    trashIcon.addEventListener('click', this._remove.bind(this));
+    this._cardImg.addEventListener('click', this._openImagePopup.bind(this));
+  }
+
+  _remove() {
+    this._card.remove();
   }
 
   getCardElement() {

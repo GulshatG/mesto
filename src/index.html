@@ -131,24 +131,24 @@
     <section class="popup popup_avatar">
       <div class="popup__container">
         <button
-                class="popup__close-icon popup__close-icon_create-card"
-                type="button"
+          class="popup__close-icon popup__close-icon_create-card"
+          type="button"
         >
           <img
-                  class="popup__image-close"
-                  src="<%=require('./image/Clos-Icon.svg')%>"
-                  alt="Закрыть"
+            class="popup__image-close"
+            src="<%=require('./image/Clos-Icon.svg')%>"
+            alt="Закрыть"
           />
         </button>
         <form class="popup__form popup__form_update-avatar" name="edit">
           <h2 class="popup__title">Обновить аватар</h2>
           <input
-                  id="avatar-link"
-                  class="popup__input popup__input_field_link"
-                  type="url"
-                  name="link"
-                  placeholder="Ссылка на картинку"
-                  required
+            id="avatar-link"
+            class="popup__input popup__input_field_link"
+            type="url"
+            name="link"
+            placeholder="Ссылка на картинку"
+            required
           />
           <span class="avatar-link-error popup__input-error"></span>
           <button class="popup__button" type="submit">Сохранить</button>

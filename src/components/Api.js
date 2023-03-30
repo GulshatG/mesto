@@ -1,5 +1,5 @@
 export default class Api {
-  constructor({url, auth}) {
+  constructor({ url, auth }) {
     this._url = url;
     this._auth = auth;
   }

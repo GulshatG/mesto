@@ -57,19 +57,19 @@ export default class CardApi extends Api {
   }
 
   like(id, isLiked) {
-    const method = isLiked ? "DELETE" : "PUT"
+    const method = isLiked ? "DELETE" : "PUT";
     return fetch(this._url + "/" + id + "/likes", {
       method: method,
       headers: {
         authorization: this._auth,
       },
     })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject;
-    })
-    .catch((err) => console.log("err in UserApi" + err));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject;
+      })
+      .catch((err) => console.log("err in UserApi" + err));
   }
 }

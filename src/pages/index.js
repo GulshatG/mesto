@@ -132,8 +132,6 @@ buttonEdit.addEventListener("click", () => {
   editProfilePopup.open();
 });
 buttonAdd.addEventListener("click", () => addCardPopup.open());
-closeButtonAdd.addEventListener("click", () => addCardPopup.close());
-popupBigImageCloseIcon.addEventListener("click", () => cardPopup.close());
 buttonAvatar.addEventListener("click", () => avatarPopup.open());
 
 const section = new Section(createCardElement, ".elements");

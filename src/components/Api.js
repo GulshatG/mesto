@@ -3,4 +3,10 @@ export default class Api {
     this._url = url;
     this._auth = auth;
   }
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject;
+  }
 }

@@ -10,6 +10,7 @@ import UserApi from "../components/UserApi.js";
 import CardApi from "../components/CardApi.js";
 import PopupDelete from "../components/PopupDelete.js";
 
+let userId;
 const buttonEdit = document.querySelector(".profile__button-edit");
 const inputName = document.querySelector(".popup__input_field_name");
 const inputFeature = document.querySelector(".popup__input_field_feature");
@@ -28,7 +29,7 @@ const deleteCardPopup = new PopupDelete(".popup_delete", handleCardRemove);
 const avatarPopup = new PopupWithForm(".popup_avatar", handleFormUpdateAvatar);
 const editProfilePopup = new PopupWithForm(
   ".popup_profile",
-handleFormUserInfo
+  handleFormUserInfo
 );
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
@@ -57,23 +58,24 @@ function createCardElement(item) {
     "#card",
     ({ name, link }) => cardPopup.open({ name, link }),
     (card, id) => deleteCardPopup.open(card, id),
-    (data) => handleLikeClick(data)
+    (data) => handleLikeClick(data),
+    userId
   );
   return card.getCardElement();
 }
-function handleFormUserInfo({ name, feature }, button){
+
+function handleFormUserInfo({ name, feature }, button) {
   button.innerText = "Сохранение...";
-    userApi
+  userApi
     .updateInfo(name, feature)
     .then(() => {
       userInfo.setUserInfo(name, feature);
+      editProfilePopup.close();
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      editProfilePopup.close()
       button.innerText = "Сохранить";
     });
-
 }
 
 function handleFormAddCard({ name, link }, button) {
@@ -82,10 +84,10 @@ function handleFormAddCard({ name, link }, button) {
     .addCard({ name, link })
     .then((card) => {
       section.addItem(createCardElement(card), true);
+      addCardPopup.close();
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      addCardPopup.close();
       button.innerText = "Сохранить";
     });
 }
@@ -96,10 +98,10 @@ function handleFormUpdateAvatar({ link }, button) {
     .updateAvatar(link)
     .then(() => {
       userInfo.setAvatar(link);
+      avatarPopup.close();
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      avatarPopup.close();
       button.innerText = "Сохранить";
     });
 }
@@ -107,18 +109,18 @@ function handleFormUpdateAvatar({ link }, button) {
 function handleCardRemove(card, id) {
   cardApi
     .deleteCard(id)
-    .then(() => card.remove())
-    .catch((err) => console.log(err))
-    .finally(() => deleteCardPopup.close());
+    .then(() => {
+      card.remove();
+      deleteCardPopup.close();
+    })
+    .catch((err) => console.log(err));
 }
 
-function handleLikeClick({ likeButton, likeCount, id }) {
-  const isLiked = likeButton.classList.contains("elements__button-like_active");
+function handleLikeClick({ isLiked, id, setLike }) {
   cardApi
     .like(id, isLiked)
     .then((res) => {
-      likeButton.classList.toggle("elements__button-like_active");
-      likeCount.innerText = res.likes.length;
+      setLike(res.likes.length);
     })
     .catch((err) => console.log(err));
 }
@@ -129,7 +131,6 @@ buttonEdit.addEventListener("click", () => {
   inputFeature.value = info.feature;
   editProfilePopup.open();
 });
-profileCloseButton.addEventListener("click", () => editProfilePopup.close());
 buttonAdd.addEventListener("click", () => addCardPopup.open());
 closeButtonAdd.addEventListener("click", () => addCardPopup.close());
 popupBigImageCloseIcon.addEventListener("click", () => cardPopup.close());
@@ -141,14 +142,13 @@ formList.forEach((form) => {
   const validator = new FormValidator(settings, form);
   validator.enableValidation();
 });
-userApi
-  .getUserInfo()
-  .then((res) => {
-    userInfo.setUserInfo(res.name, res.about);
-    userInfo.setAvatar(res.avatar);
+
+Promise.all([userApi.getUserInfo(), cardApi.getCards()])
+  .then(([userRes, cardsRes]) => {
+    userInfo.setUserInfo(userRes.name, userRes.about);
+    userInfo.setAvatar(userRes.avatar);
+    userId = userRes._id;
+
+    section.renderItems(cardsRes);
   })
-  .catch((err) => console.log(err));
-cardApi
-  .getCards()
-  .then((cards) => section.renderItems(cards))
   .catch((err) => console.log(err));

@@ -1,4 +1,3 @@
-import { myId } from "../utils/constants.js";
 
 export default class Card {
   constructor(
@@ -6,7 +5,8 @@ export default class Card {
     selector,
     handleCardClick,
     handleCardRemove,
-    handleLikeClick
+    handleLikeClick,
+      userId
   ) {
     this._name = data.name;
     this._link = data.link;
@@ -17,6 +17,7 @@ export default class Card {
     this._handleCardClick = handleCardClick;
     this._handleCardRemove = handleCardRemove;
     this._handleLikeClick = handleLikeClick;
+    this._userId = userId;
   }
 
   _getElement() {
@@ -44,7 +45,7 @@ export default class Card {
     this._likeCount = this._card.querySelector(".elements__like-count");
     this._likeCount.innerText = this._likes.length;
     this._trachIcon = this._card.querySelector(".elements__trash-icon");
-    if (this._ownerId !== myId) {
+    if (this._ownerId !== this._userId) {
       this._trachIcon.remove();
     }
     if (this._isLiked()) {
@@ -56,7 +57,7 @@ export default class Card {
   _isLiked() {
     let isLiked = false;
     this._likes.forEach((like) => {
-      if (like._id === myId) {
+      if (like._id === this._userId) {
         isLiked = true;
         return;
       }
@@ -66,13 +67,14 @@ export default class Card {
 
   _addListenersToCard() {
     this._likeButton.addEventListener("click", () => {
+      const isLiked = this._likeButton.classList.contains("elements__button-like_active");
       this._handleLikeClick({
-        likeButton: this._likeButton,
-        likeCount: this._likeCount,
+        isLiked: isLiked,
         id: this._id,
+        setLike: this.setLike.bind(this)
       });
     });
-    if (this._ownerId === myId) {
+    if (this._ownerId === this._userId) {
       const trashIcon = this._card.querySelector(".elements__trash-icon");
       trashIcon.addEventListener("click", () =>
         this._handleCardRemove(this._card, this._id)
@@ -83,5 +85,9 @@ export default class Card {
 
   getCardElement() {
     return this._createCard();
+  }
+  setLike(count){
+    this._likeButton.classList.toggle("elements__button-like_active");
+    this._likeCount.innerText = count;
   }
 }

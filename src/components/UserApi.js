@@ -10,14 +10,7 @@ export default class UserApi extends Api {
       headers: {
         authorization: this._auth,
       },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject;
-      })
-      .catch((err) => console.log("err in UserApi" + err));
+    }).then(this._checkResponse);
   }
 
   updateInfo(name, feature) {
@@ -31,14 +24,7 @@ export default class UserApi extends Api {
         name: name,
         about: feature,
       }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject;
-      })
-      .catch((err) => console.log("err in UserApi" + err));
+    }).then(this._checkResponse);
   }
   updateAvatar(link) {
     return fetch(this._url + "/avatar", {
@@ -50,13 +36,13 @@ export default class UserApi extends Api {
       body: JSON.stringify({
         avatar: link,
       }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject;
-      })
-      .catch((err) => console.log("err in UserApi" + err));
+    }).then(this._checkResponse);
+  }
+
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject;
   }
 }

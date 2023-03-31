@@ -10,14 +10,7 @@ export default class CardApi extends Api {
       headers: {
         authorization: this._auth,
       },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject;
-      })
-      .catch((err) => console.log("err in UserApi" + err));
+    }).then(this._checkResponse);
   }
   addCard({ name, link }) {
     return fetch(this._url, {
@@ -30,14 +23,7 @@ export default class CardApi extends Api {
         name: name,
         link: link,
       }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject;
-      })
-      .catch((err) => console.log("err in UserApi" + err));
+    }).then(this._checkResponse);
   }
 
   deleteCard(id) {
@@ -46,14 +32,7 @@ export default class CardApi extends Api {
       headers: {
         authorization: this._auth,
       },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject;
-      })
-      .catch((err) => console.log("err in UserApi" + err));
+    }).then(this._checkResponse);
   }
 
   like(id, isLiked) {
@@ -63,13 +42,12 @@ export default class CardApi extends Api {
       headers: {
         authorization: this._auth,
       },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject;
-      })
-      .catch((err) => console.log("err in UserApi" + err));
+    }).then(this._checkResponse);
+  }
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject;
   }
 }

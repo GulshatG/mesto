@@ -14,13 +14,9 @@ let userId;
 const buttonEdit = document.querySelector(".profile__button-edit");
 const inputName = document.querySelector(".popup__input_field_name");
 const inputFeature = document.querySelector(".popup__input_field_feature");
-const profileCloseButton = document.querySelector(".popup__close-icon");
 const buttonAdd = document.querySelector(".profile__button-add");
 const buttonAvatar = document.querySelector(".profile__avatar-edit");
-const closeButtonAdd = document.querySelector(".popup__close-icon_create-card");
-const popupBigImageCloseIcon = document.querySelector(
-  ".popup__close-icon_popup-card"
-);
+
 
 const formList = Array.from(document.querySelectorAll(".popup__form"));
 const cardPopup = new PopupWithImage(".popup_card");
